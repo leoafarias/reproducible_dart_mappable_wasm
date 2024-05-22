@@ -1,16 +1,24 @@
-# mappable_test
+# Reproducible Dart Mappable Wasm compile error
 
-A new Flutter project.
+To run follow these steps.
 
-## Getting Started
+**The issue happens on `master`: `3.22.0-42.0.pre.6`. Does not happen on latest stable `3.22.0`.**
 
-This project is a starting point for a Flutter application.
+### Steps to reproduce
 
-A few resources to get you started if this is your first Flutter project:
+#### Clone repo
+```bash
+git clone https://github.com/leoafarias/reproducible_dart_mappable_wasm
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+#### Build web with --wasm flag
+```bash
+flutter build web --wasm
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+#### View error
+```bash
+Target dart2wasm failed: ProcessException: Process exited abnormally with exit code 64:
+Error: Wasm compilation failed while optimizing output
+[wasm-validator error in function identityHashCode] block with value and last element with value must match types, on 
+```
